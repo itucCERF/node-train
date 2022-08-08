@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 // Require page controller
-const page_controller = require('../controllers/page');
+const page_controller = require('../controllers/pageController');
 
 router.get('/', page_controller.index);
 

@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-sm-8">
+        <div class="jumbotron">
+            <h1><%- title %></h1>
+            <div class="table-responsvie">
+                <table class="table table-bordered table-stripped">
+                    <thead>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <%if (students.length > 0) { %>
+                            <% students.forEach(function(key, student) { %>
+                                <tr>
+                                    <td><=% key + 1 %></td>
+                                    <td><%= student['name'] %></td>
+                                    <td><%= student['email'] %></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                            <% }); %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="4" class="text-center font-italic">Don't have any items!</td>
+                            </tr>
+                        <% } %>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <%- include('../partials/sidebar'); %>
+    </div>
+</div>

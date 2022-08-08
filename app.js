@@ -2,6 +2,7 @@ var express = require('express');
 var expressLayouts = require('express-ejs-layouts');
 var app = express();
 var routes = require('./routes/index');
+var students = require('./routes/student');
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -15,6 +16,7 @@ app.use(express.static(__dirname + '/public'))
 
 // index route
 app.use('/', routes);
+app.use('/students', students);
 
 app.listen(8080);
 console.log('Server is listening on port 8080');
