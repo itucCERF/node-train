@@ -15,6 +15,17 @@ function getAllStudents()
     }
     return students;
 }
+// create Student to storage
+function storeStudent(id, fullname, email)
+{
+    var students = getAllStudents();
+    students.push({
+        id : id,
+        fullname : fullname,
+        email : email
+    });
+    storage.setItem('students', students);
+}
 
 module.exports = {
     index: function(req, res) {
@@ -26,7 +37,7 @@ module.exports = {
         });
     },
 
-    about: function(req, res) {
-        res.render('pages/about');
+    create: function(req, res) {
+        res.render('students/create');
     }
 };
