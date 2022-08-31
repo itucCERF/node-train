@@ -1,8 +1,10 @@
+require('dotenv').config();
 var express = require('express');
 var expressLayouts = require('express-ejs-layouts');
 var app = express();
-var routes = require('./routes/index');
-var students = require('./routes/student');
+let port = process.env.PORT || 3000;
+var web = require('./routes/web');
+var api = require('./routes/api');
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -11,12 +13,12 @@ app.set('layout', './layouts/default')
 
 app.use(expressLayouts);
 
-//Set static folder
+// Set static folder
 app.use(express.static(__dirname + '/public'))
 
 // index route
-app.use('/', routes);
-app.use('/students', students);
+app.use('/api', api);
+app.use('/', web);
 
-app.listen(8080);
-console.log('Server is listening on port 8080');
+app.listen(port);
+console.log(`Server is listening on port ${port}`);
